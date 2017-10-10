@@ -1,0 +1,82 @@
+.log_game_section {
+    height: 560px;
+    width: 350px;
+    background-color: #505050;
+    margin: 25px;
+    float: left;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .log_game_section hr {
+    display: block;
+    height: 1px;
+    width: 250px;
+    border: 0;
+    border-top: 3px solid #1D1D1D;
+    margin: auto;
+    margin-top: -5px;
+    padding: 0;
+  }
+
+  select {
+    color: #00ff00;
+    background-color: #1D1D1D;
+    height: 35px;
+    width: 200px;
+    font-size: 11px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .player_div {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+  }
+
+  .log_game_section h5 {
+    margin-top: -10px;
+  }
+
+  .player_h4 {
+    width: 225px;
+    float: left;
+    margin-left: 15px;
+    margin-bottom: -10px;
+  }
+
+  .name_points {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .points_input {
+    color: #00ff00;
+    background-color: #1D1D1D;
+    font-size: 11px;
+    height: 30px;
+    width: 70px;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  button {
+    height: 100px;
+    width: 200px;
+    color: #00ff00;
+    background-color: #1D1D1D;
+    margin-top: 30px;
+    font-size: 25px;
+    line-height: 30px;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .red {
+    color: #FF0000; 
+  }

@@ -1,0 +1,61 @@
+Competative Cohort Intramurals
+
+lowdb
+	- Saves as a JSON object
+	{
+		totalPPMatches: 65,
+		totalFBMatches: 43,
+		users: [
+			{
+				name: "William",
+				PPMMR: 2000,
+				ppGames: {
+					opponent: '',
+					playerPoints: 0,
+					oppPoints: 0,
+					win: true
+				}
+				FBMMR: 2000,
+				fbGames: []
+			},
+			{
+				name: "Stefano",
+				PPMMR: 2000,
+				
+				FBMMR: 2000,
+				
+			}
+		]
+	}
+	
+	
+How to setup
+
+use terminal - go to folder you want
+	npm init -y
+	npm install express axios body-parser (lowdb) (other)
+
+to run/start server: 
+	node index
+	or
+	npm install -g nodemon (only do once per computer)
+	then:
+	sudo nodemon
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
