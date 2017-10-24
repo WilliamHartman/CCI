@@ -22,7 +22,8 @@ class LogGame extends Component {
         this.updatePlayer1Points = this.updatePlayer1Points.bind(this);
         this.updatePlayer2Points = this.updatePlayer2Points.bind(this);
         this.saveGame = this.saveGame.bind(this);
-        this.findPlayer = this.findPlayer.bind(this);
+        this.findPlayerIndex = this.findPlayerIndex.bind(this);
+        this.findPlayerID = this.findPlayerID.bind(this);
         this.mmrChange = this.mmrChange.bind(this);
     }
 
@@ -43,7 +44,6 @@ class LogGame extends Component {
     selectPlayer2(e) {
         this.setState({player2:e.target.value}, () => {
             if(this.state.player1.length !== 0 && this.state.player2.length !== 0){
-                console.log("p2")
                 this.mmrChange();
             }
         })
@@ -60,23 +60,21 @@ class LogGame extends Component {
     mmrChange(){
         let act = '';
         if(this.state.activity === 'Ping-Pong'){
-            act = 'ppMMR';
+            act = 'ppmmr';
         } else {
-            act = 'fbMMR';
+            act = 'fbmmr';
         }
         let potChange = 25
-        let player1 = this.findPlayer(this.state.player1);
-        let player2 = this.findPlayer(this.state.player2);
-        console.log(player1 + " p1")
-        let diff = Math.abs(this.props.data.players[player1][act]-this.props.data.players[player2][act]);
+        let player1 = this.findPlayerIndex(this.state.player1);
+        let player2 = this.findPlayerIndex(this.state.player2);
+        let diff = Math.abs(this.props.players[player1][act]-this.props.players[player2][act]);
       
         potChange = Math.round(25 - (diff/100));
         if(potChange < 5){
           potChange = 5;
         }
         let potChangeSmall =  Math.round(25 + (25-potChange));
-        
-        if(this.props.data.players[player1][act] >= this.props.data.players[player2][act]){
+        if(this.props.players[player1][act] >= this.props.players[player2][act]){
             this.setState({
                 p2Change: [potChangeSmall, potChange],
                 p1Change: [potChange, potChangeSmall]
@@ -90,8 +88,8 @@ class LogGame extends Component {
     }
     
     saveGame(){
-        let player1 = this.findPlayer(this.state.player1);
-        let player2 = this.findPlayer(this.state.player2);
+        let player1 = this.findPlayerID(this.state.player1);
+        let player2 = this.findPlayerID(this.state.player2);
         let dateAndTime =  dateCreator();
         let game = {
             act:this.state.activity,
@@ -105,18 +103,27 @@ class LogGame extends Component {
         this.props.postData(game);
     }
 
-    findPlayer(playerName){
-        let id = null;
-        for(let i=0; i<this.props.data.players.length; i++){
-          if(this.props.data.players[i].name === playerName)
-            id= i;
+    findPlayerID(playerName){
+        let tempID = null;
+        for(let i=0; i<this.props.players.length; i++){
+          if(this.props.players[i].pname === playerName)
+            tempID= i;
         }
-        return id;
+        return this.props.players[tempID].id;
+      }
+
+    findPlayerIndex(playerName){
+        let tempID = null;
+        for(let i=0; i<this.props.players.length; i++){
+          if(this.props.players[i].pname === playerName)
+            tempID= i;
+        }
+        return tempID;
       }
 
     render() {
-        var jsxNames = this.props.data.players.map(player => {
-            return <option>{player.name}</option>;
+        var jsxNames = this.props.players.map((player, i) => {
+            return <option key={i}>{player.pname}</option>;
         })
         return (
             <div className='log_game_section'>
@@ -150,7 +157,7 @@ class LogGame extends Component {
                     </select>
                     <input className='points_input' placeholder='Points' onChange={e => this.updatePlayer2Points(e)}></input>
                 </div>
-                <button onClick={this.saveGame}>Save Game</button>
+                <button className='save-game-button' onClick={this.saveGame}>Save Game</button>
             </div>
         )
     }

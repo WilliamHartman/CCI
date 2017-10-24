@@ -5,7 +5,7 @@ import './App.css';
 import PPImg from "./images/pingpong8bit.png"
 import FBImg from "./images/foosballman8bit.png"
 import axios from 'axios';
-const port = 8080;
+const port = 8082;
 
 
 class App extends Component {
@@ -13,29 +13,44 @@ class App extends Component {
     super();
 
     this.state = {
-      data: {players:[]}
+      players:[]
     }
 
     this.postData = this.postData.bind(this);
-    this.getData = this.getData.bind(this);
+    this.getPlayers = this.getPlayers.bind(this);
+    this.addPlayer = this.addPlayer.bind(this);
   }
 
   componentWillMount = () => {
-    this.getData();
+    this.getPlayers();
   }
   
-  getData(){
+  getPlayers(){
     axios.get(`http://localhost:${port}/api/data/get`)
       .then(response => {
-        this.setState({data:response.data})
+        this.setState({players:response.data})
       })
   }
 
   postData(game){
-    axios.post(`http://localhost:${port}/api/data/post`, game)
-      .then(response => {
-        this.setState({data:response.data})
+    axios.post(`http://localhost:${port}/api/data/postgame`, game)
+      .then(() => {
+        axios.get(`http://localhost:${port}/api/data/get`)
+          .then(response => {
+           this.setState({players:response.data})
+        })
       })
+  }
+
+  addPlayer(newPlayer){
+    console.log(newPlayer)
+    axios.post(`http://localhost:${port}/api/data/postplayer/${newPlayer}`)
+      .then(() => {
+        axios.get(`http://localhost:${port}/api/data/get`)
+          .then(response => {
+            this.setState({players:response.data})
+      })
+    })
   }
 
 
@@ -53,8 +68,8 @@ class App extends Component {
           </div>
         </header>
         <div className="main_content">
-            <LogGame data={this.state.data} getData={this.getData} postData={this.postData}/>
-            <Leaderboard data={this.state.data} getData={this.getData}/>
+            <LogGame players={this.state.players} getPlayers={this.getPlayers} postData={this.postData}/>
+            <Leaderboard players={this.state.players} getPlayers={this.getPlayers} addPlayer={this.addPlayer}/>
         </div>
       </div>
     );

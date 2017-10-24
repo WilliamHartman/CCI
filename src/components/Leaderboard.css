@@ -1,6 +1,8 @@
 .leaderboard_section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     height: 560px;
     width: 900px;
     background-color: #505050;
@@ -15,7 +17,6 @@
     flex-flow: column;
     height: 70px;
     width: 900px;
-    position: absolute;
   }
 
   .leaderboard_header h1 {
@@ -40,19 +41,16 @@
   .top_ten_cont {
     display: flex;
     flex-flow: row;
-    justify-content: space-around;
     height: 475px;
     width: 900px;
-    margin-top: 75px;
   }
 
   .top_ten {
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-items: center;
-    height: 450px;
-    width: 475px
+    height: 425px;
+    width: 50%
   }
 
   .top_ten_cont h3 {
@@ -60,7 +58,7 @@
     font-family: 'Press Start 2P', cursive;
     height: 30px;
     width: 475px;
-    margin-top: 0px;
+    margin-top: -10px;
     margin-bottom: 5px;
   }
 
@@ -72,4 +70,32 @@
     margin: 10px;
     margin-top: -10px;
     padding: 0;
+  }
+
+  .create-player {
+    height: 50px;
+    width: 100%;
+    align-self: flex-end;
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .create-player input {
+    color: #00ff00;
+    background-color: #1D1D1D;
+    font-size: 11px;
+    height: 30px;
+    width: 200px;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .create-player-button {
+    height: 35px;
+    width: 70px;
+    color: #00ff00;
+    background-color: #1D1D1D;
+    font-size: 12px;
+    font-family: 'Press Start 2P', cursive;
   }

@@ -1,0 +1,1 @@
+select * from players order by pname;

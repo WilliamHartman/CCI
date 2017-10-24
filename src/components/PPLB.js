@@ -25,16 +25,16 @@ class PPLB extends Component {
     }
 
     componentWillReceiveProps = (newProps) => {
-        this.resetState(newProps.data);
+        this.resetState(newProps.players);
     }
 
-    iteratePlayers(data){
-        data.players.forEach(player => {
-            this.addToTopTen(player.name, player.ppMMR);
+    iteratePlayers(players){
+        players.forEach(player => {
+            this.addToTopTen(player.pname, player.ppmmr);
         })   
     }
 
-    resetState(data){
+    resetState(players){
         this.setState({topTen: [
             ["", 0],
             ["", 0],
@@ -46,7 +46,7 @@ class PPLB extends Component {
             ["", 0],
             ["", 0],
             ["", 0]
-        ]}, () => this.iteratePlayers(data)); 
+        ]}, () => this.iteratePlayers(players)); 
     }
 
     addToTopTen(player, score) {
@@ -64,7 +64,7 @@ class PPLB extends Component {
     render() {
         var jsxTopTen = [];
         for(let i=0; i<this.state.topTen.length; i++){
-            jsxTopTen.push(<li>{this.state.topTen[i][0]} - {this.state.topTen[i][1]} </li>)
+            jsxTopTen.push(<li key={i}>{this.state.topTen[i][0]} - {this.state.topTen[i][1]} </li>)
         }
 
         return (

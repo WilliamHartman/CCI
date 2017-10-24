@@ -66,7 +66,7 @@
     font-family: 'Press Start 2P', cursive;
   }
 
-  button {
+  .save-game-button {
     height: 100px;
     width: 200px;
     color: #00ff00;
