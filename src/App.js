@@ -5,7 +5,6 @@ import './App.css';
 import PPImg from "./images/pingpong8bit.png"
 import FBImg from "./images/foosballman8bit.png"
 import axios from 'axios';
-const port = 8082;
 
 
 class App extends Component {
@@ -26,17 +25,17 @@ class App extends Component {
   }
   
   getPlayers(){
-    axios.get(`http://localhost:${port}/api/data/get`)
+    axios.get(`/api/data/get`)
       .then(response => {
         this.setState({players:response.data})
       })
   }
 
   postData(game){
-    axios.post(`http://localhost:${port}/api/data/postgame`, game)
+    axios.post(`/api/data/postgame`, game)
       .then(() => {
         setTimeout( () => {
-          axios.get(`http://localhost:${port}/api/data/get`)
+          axios.get(`/api/data/get`)
             .then(response => {
             this.setState({players:response.data})
           })
@@ -46,9 +45,9 @@ class App extends Component {
   
 
   addPlayer(newPlayer){
-    axios.post(`http://localhost:${port}/api/data/postplayer/${newPlayer}`)
+    axios.post(`/api/data/postplayer/${newPlayer}`)
       .then(() => {
-        axios.get(`http://localhost:${port}/api/data/get`)
+        axios.get(`/api/data/get`)
           .then(response => {
             this.setState({players:response.data})
       })
