@@ -17,6 +17,9 @@ massive(process.env.CONNECTION_STRING)
     app.set('db', db)
 }).catch(err=>console.log(err))
 
+app.get('/', function(req, res){
+    res.send('CCI');
+  });
 
 app.post(`${baseURL}/postgame`, dCtrl.create);
 app.get(`${baseURL}/get`, dCtrl.getPlayers);
