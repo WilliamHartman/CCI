@@ -144,7 +144,7 @@ class LogGame extends Component {
                         <option disabled selected>Choose Player</option>   
                         {jsxNames}
                     </select>
-                    <input className='points_input' placeholder='Points' onChange={e => this.updatePlayer1Points(e)}></input>
+                    <input className='points_input' placeholder='Points' onChange={e => this.updatePlayer1Points(e)} value={this.state.player1Points}></input>
                 </div>
                 <div className='player_div'>
                     <h4 className='player_h4' >Player 2</h4>
@@ -155,7 +155,7 @@ class LogGame extends Component {
                         <option disabled selected>Choose Player</option>   
                         {jsxNames}
                     </select>
-                    <input className='points_input' placeholder='Points' onChange={e => this.updatePlayer2Points(e)}></input>
+                    <input className='points_input' placeholder='Points' onChange={e => this.updatePlayer2Points(e)} value={this.state.player2Points}></input>
                 </div>
                 <button className='save-game-button' onClick={this.saveGame}>Save Game</button>
             </div>

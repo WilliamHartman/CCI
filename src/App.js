@@ -35,15 +35,17 @@ class App extends Component {
   postData(game){
     axios.post(`http://localhost:${port}/api/data/postgame`, game)
       .then(() => {
-        axios.get(`http://localhost:${port}/api/data/get`)
-          .then(response => {
-           this.setState({players:response.data})
-        })
-      })
+        setTimeout( () => {
+          axios.get(`http://localhost:${port}/api/data/get`)
+            .then(response => {
+            this.setState({players:response.data})
+          })
+      }, 500)
+    })
   }
+  
 
   addPlayer(newPlayer){
-    console.log(newPlayer)
     axios.post(`http://localhost:${port}/api/data/postplayer/${newPlayer}`)
       .then(() => {
         axios.get(`http://localhost:${port}/api/data/get`)
