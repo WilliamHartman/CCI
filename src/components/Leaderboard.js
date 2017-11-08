@@ -20,6 +20,11 @@ class Leaderboard extends Component {
                 return;
             }
         }
+        if(name.length > 10){
+            alert('Player name too long. 10 char max');
+            this.refs.newplayer.value = '';
+            return;
+        }
         this.props.addPlayer(this.refs.newplayer.value);
         this.refs.newplayer.value = '';
     }

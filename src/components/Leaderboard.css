@@ -1,6 +1,6 @@
 .leaderboard_section {
     height: 560px;
-    min-width: 700px;
+    min-width: 900px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 45%
+    width: 50%
   }
 
   .top_ten_cont h3 {
@@ -97,7 +97,7 @@
     font-family: 'Press Start 2P', cursive;
   }
 
-  @media (max-width: 1150px){
+  @media (max-width: 1350px){
     .leaderboard_section {
       height: 1200px;
       width: 350px;
