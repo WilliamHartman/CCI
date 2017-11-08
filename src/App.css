@@ -14,7 +14,7 @@
 
 .title_container {
   height: 150px;
-  width: 500px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -66,6 +66,7 @@
   margin-top: 150px;
   flex-wrap: wrap;
   position: absolute;
+  justify-content: center;
 }
 
 @keyframes fbman-spin {
@@ -82,5 +83,17 @@
   }
   100% {
       transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 1150px){
+  .main_content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 650px){
+  .desktop-ani{
+    display: none;
   }
 }

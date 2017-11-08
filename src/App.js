@@ -60,12 +60,12 @@ class App extends Component {
       <div className="App">
         <header className="header">
           <div className="title_container">
-            <img src={FBImg} alt="" className="fb_img"/>
+            <img src={FBImg} alt="" className="fb_img desktop-ani"/>
             <div>
               <h1 className="title">CCI</h1>
               <h5>Competative Cohort Intramurals</h5>
             </div>
-            <img src={PPImg} alt="" className="pp_img"/>
+            <img src={PPImg} alt="" className="pp_img desktop-ani"/>
           </div>
         </header>
         <div className="main_content">

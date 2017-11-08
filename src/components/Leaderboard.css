@@ -1,10 +1,10 @@
 .leaderboard_section {
+    height: 560px;
+    min-width: 700px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 560px;
-    width: 900px;
     background-color: #505050;
     margin: 25px;
     float: right;
@@ -16,7 +16,7 @@
     align-items: center;
     flex-flow: column;
     height: 70px;
-    width: 900px;
+    width: 100%;
   }
 
   .leaderboard_header h1 {
@@ -41,25 +41,22 @@
   .top_ten_cont {
     display: flex;
     flex-flow: row;
-    height: 475px;
-    width: 900px;
+    justify-content: space-around;
+    width: 100%;
   }
 
   .top_ten {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 425px;
-    width: 50%
+    width: 45%
   }
 
   .top_ten_cont h3 {
     justify-content: center;
     font-family: 'Press Start 2P', cursive;
     height: 30px;
-    width: 475px;
-    margin-top: -10px;
-    margin-bottom: 5px;
+    width: 100%;
   }
 
   .top_ten_cont hr {
@@ -98,4 +95,19 @@
     background-color: #1D1D1D;
     font-size: 12px;
     font-family: 'Press Start 2P', cursive;
+  }
+
+  @media (max-width: 1150px){
+    .leaderboard_section {
+      height: 1200px;
+      width: 350px;
+      min-width: 350px;
+    }
+
+    .top_ten_cont {
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
   }
