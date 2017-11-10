@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const port = 8082;
+const port = 8080;
 const baseURL = `/api/data`;
 const dCtrl = require(`./controllers/data_controller.js`);
 const cors = require('cors')
@@ -24,6 +24,11 @@ app.get('/', function(req, res){
 
 app.post(`${baseURL}/postgame`, dCtrl.create);
 app.get(`${baseURL}/get`, dCtrl.getPlayers);
-app.post(`${baseURL}/postplayer/:playerName`, dCtrl.addPlayer)
+app.post(`${baseURL}/postplayer/:playerName`, dCtrl.addPlayer);
+
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 app.listen(port, () => console.log(`Listening on ${port}`));

@@ -63,7 +63,7 @@ class App extends Component {
             <img src={FBImg} alt="" className="fb_img desktop-ani"/>
             <div>
               <h1 className="title">CCI</h1>
-              <h5>Competative Cohort Intramurals</h5>
+              <h5>Cohort Competative Intramurals</h5>
             </div>
             <img src={PPImg} alt="" className="pp_img desktop-ani"/>
           </div>
